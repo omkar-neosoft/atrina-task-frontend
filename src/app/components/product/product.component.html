@@ -1,0 +1,22 @@
+Product component
+<div *ngFor="let product of products">
+    <h3>{{ product.name }}</h3>
+    <p>Available Stock: {{ product.stock }}</p>
+    <input type="number" [(ngModel)]="product.orderQty" min="1" [max]="product.stock" />
+    <!-- <button (click)="placeOrder(product.id, product.orderQty)"
+        [disabled]="product.orderQty > product.stock || !product.orderQty">
+        Order
+    </button> -->
+    <button (click)="placeOrder(product.id, product.orderQty)">
+        Order
+    </button>
+    <hr />
+</div>
+
+<div *ngIf="successAlert !== ''" style="border: 1px solid green;">
+    {{successAlert}}
+</div>
+
+<div *ngIf="errorAlert !== ''" style="border: 1px solid red;">
+    {{errorAlert}}
+</div>
