@@ -39,7 +39,23 @@ export class ProductComponent implements OnInit {
     console.log({
       'product.orderQty > product.stock': product.orderQty > product.stock,
     });
-    // if (product.orderQty > product.stock && !(product.stock > 0)) {
+    console.log({ 'product.orderQty': product.orderQty });
+    console.log({ 'product.stock': product.stock });
+    if (
+      product.orderQty > product.stock ||
+      product.stock < 1 ||
+      product.orderQty < 1
+    ) {
+      if (product.orderQty < 1) {
+        this.errorAlert = 'Quantity must be grater than 0';
+      } else {
+        this.errorAlert = 'Quantity is more than stock';
+      }
+      setTimeout(() => {
+        this.errorAlert = '';
+      }, 5000);
+      return;
+    }
     this.stockService.placeOrder(productId, qty).subscribe({
       next: (res: any) => {
         this.successAlert = res.message;
@@ -54,7 +70,6 @@ export class ProductComponent implements OnInit {
         }, 5000);
       },
     });
-    // }
     // else {
     //   this.errorAlert = 'Quantity is more than stock';
     //   setTimeout(() => {
