@@ -1,0 +1,25 @@
+<div *ngFor="let order of orders">
+    <h3>{{ order.name }}</h3>
+    <p>Order Id: {{ order.id }}</p>
+    <p>Product Id: {{ order.productId }}</p>
+    <p>Product Quantity: {{ order.quantity }}</p>
+    <!-- <input type="number" [(ngModel)]="order.deliveryStatus" /> -->
+    <select name="deliveryStatus" id="deliveryStatus" [(ngModel)]="order.deliveryStatus">
+        <option selected>Select Status</option>
+        <option value="In Transit">In Transit</option>
+        <option value="Delivered">Delivered</option>
+        <option value="Failed">Failed</option>
+    </select>
+    <button (click)="updateDeliveryStatus(order.id, order.deliveryStatus)">
+        Update Status
+    </button>
+    <hr />
+</div>
+
+<div *ngIf="successAlert !== ''" style="border: 1px solid green;">
+    {{successAlert}}
+</div>
+
+<div *ngIf="errorAlert !== ''" style="border: 1px solid red;">
+    {{errorAlert}}
+</div>

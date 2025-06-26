@@ -39,22 +39,4 @@ export class StockService {
       quantity,
     });
   }
-
-  // private hubConnection: signalR.HubConnection;
-  // private stockUpdates = new BehaviorSubject<any>(null);
-  // stockUpdates$ = this.stockUpdates.asObservable();
-
-  // constructor() {
-  //   this.hubConnection = new signalR.HubConnectionBuilder()
-  //     .withUrl('https://localhost:7001/stockHub')
-  //     .build();
-
-  //   this.hubConnection.start().then(() => {
-  //     console.log('SignalR Connected');
-  //   });
-
-  //   this.hubConnection.on('ReceiveStockUpdate', (productId, newStock) => {
-  //     this.stockUpdates.next({ productId, newStock });
-  //   });
-  // }
 }

@@ -1,0 +1,22 @@
+<div>
+    <button routerLink="/products">Order product</button>
+</div>
+
+<table border="1px">
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>Product Id</th>
+            <th>Product Quantity</th>
+            <th>Delivery Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order.id}} </td>
+            <td>{{order.productId}} </td>
+            <td>{{order.quantity}} </td>
+            <td>{{order.deliveryStatus}} </td>
+        </tr>
+    </tbody>
+</table>
